@@ -1,0 +1,15 @@
+	<div id="header">
+      <a class="btn btn-success" routerLink="/addLogin">Créer Compte</a>
+			<a class="btn btn-success" routerLink="/listlogins">Liste des logins</a>
+			<a class="btn btn-success" routerLink="/custom">CUSTOMERS</a>
+			<a *ngIf="login.isAnonymous" class="btn btn-info" routerLink="/login">Login</a>
+			<a *ngIf="!login.isAnonymous" class="btn btn-danger" (click)="logout()">Logout</a>
+			<div class="container">
+				<div class="row">
+						<span class="badge badge-success">
+							{{login.userName}}
+						</span>
+				</div>
+			</div>
+    <span appShowusernow [logindir]="login.userName"></span>
+	</div>

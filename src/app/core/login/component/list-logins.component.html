@@ -1,0 +1,23 @@
+<div>
+  <span *ngIf="isLoaded">Liste des Logins</span>
+  <span *ngIf="!isLoaded">Chargement en cours !</span>
+
+    <table class="table table-sm">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Username</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let login of ListLogins | async ">
+        <td>{{login.id}}</td>
+        <td>{{login.userName | lowercase}}</td>
+        <td><span class="btn btn-danger" (click)="deleteLogin(login.id)">Supprimer</span></td>
+      </tr>
+      </tbody>
+    </table>
+
+
+</div>
