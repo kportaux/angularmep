@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
     /**
      * Objet login lié au service d'identification
      */
-    private login: Login;
+    public login: Login;
     /**
      *
      * @param authentication service injecté d'authentification

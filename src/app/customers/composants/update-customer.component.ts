@@ -14,8 +14,8 @@ const urlCustomer = environment.urlAPI + 'customers';
   styleUrls: ['./update-customer.component.css']
 })
 export class UpdateCustomerComponent implements OnInit {
-  // public updateCustomer: Customer;
-  public updateCustomerO: Observable<Customer>;
+  public updateCustomer: Customer;
+  // public updateCustomerO: Observable<Customer>;
 
   constructor(private gensCustomerService: ServiceGenService<Customer>,
               private route: ActivatedRoute) {
@@ -27,13 +27,13 @@ export class UpdateCustomerComponent implements OnInit {
     if (myid === undefined) {
       return;
     } else {
-      // this.getCustomerById(myid);
-      this.updateCustomerO = this.getCustomerByIdO(myid);
-      console.error('this.updateCustomerO: ' + this.updateCustomerO);
+      this.getCustomerById(myid);
+      // this.updateCustomerO = this.getCustomerByIdO(myid);
+      // console.error('this.updateCustomerO: ' + this.updateCustomerO);
     }
   }
 
-/*  getCustomerById(id: string) {
+  getCustomerById(id: string) {
     return this.gensCustomerService.getListT(urlCustomer)
       .pipe(map(data => data.filter(cust => cust.id === cust.id)
       )).subscribe(
@@ -47,7 +47,7 @@ export class UpdateCustomerComponent implements OnInit {
           this.updateCustomer = null;
         }
       );
-  }*/
+  }
 
 
   getCustomerByIdO(id: string) {
@@ -55,7 +55,7 @@ export class UpdateCustomerComponent implements OnInit {
   }
 
   updateCustomerF() {
-    this.gensCustomerService.putT(this.updateCustomerO, urlCustomer)
+    this.gensCustomerService.putT(this.updateCustomer, urlCustomer)
       .subscribe(
         data => {
           console.log('PUT Request is successful ', data);

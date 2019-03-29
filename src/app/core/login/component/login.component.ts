@@ -7,8 +7,8 @@ import {Loginservice} from '../service/loginservice.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private firstName: string;
-  private pass: string;
+  public firstName: string;
+  public pass: string;
 
   constructor(private loginservice: Loginservice) { }
 

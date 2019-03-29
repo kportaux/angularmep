@@ -14,8 +14,8 @@ const urlLogin = environment.urlAPI + 'login';
   styleUrls: ['./list-logins.component.css']
 })
 export class ListLoginsComponent implements OnInit {
-  private ListLogins: Observable<Login[]>;
-  private isLoaded: boolean;
+  public ListLogins: Observable<Login[]>;
+  public isLoaded: boolean;
 
   constructor(private logingenservice: ServiceGenLoginService,
               private genservice: ServiceGenService<Login>) { }
